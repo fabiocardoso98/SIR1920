@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Free Web tutorials">
+    <meta name="keywords" content="HTML,CSS,XML,JavaScript">
+    <meta name="author" content="John Doe">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="mystyle.css">
+</head>
+
+<body>
+
+    <h1>My First CSS Example</h1>
+
+    <p>This is a paragraph.</p>
+
+    <p id="demo">Click the button to change the layout of this paragraph</p>
+    
+    <button onclick="myFunction()">Click Me!</button>
+
+</body>
+
+<script src="myscripts.js"></script>
+<script>
+    function myFunction() {
+        var x = document.getElementById("demo");
+        x.style.fontSize = "25px";
+        x.style.color = "red";
+
+        console.log('Hello World!')
+    }
+</script>
+
+</html>
