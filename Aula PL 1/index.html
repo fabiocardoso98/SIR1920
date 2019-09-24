@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Aula HTML - CSS</title>
+    <link rel="stylesheet" href="mystyle.css">
+
+    <style>
+        h1 {
+            font-size: 12px;
+        }
+        
+        p {
+            color: tomato;
+            font-size: 20px;
+        }
+        
+        p {
+            color: steelblue;
+            font-size: 20px;
+        }
+        
+        #myp1 {
+            color: #1443ed;
+        }
+    </style>
+</head>
+
+<body style="font-size: 48px">
+
+    <h1 style="color:#FF0000;text-align: center">Olá</h1>
+    <p id="myp1">Isto é um texto dentro de um parágrafo.</p>
+
+    <div>
+        <p> P 1</p>
+        <p> P 2</p>
+        <p> Outro P</p>
+        <h5>Isto é um h5</h5>
+        <p>Mais um P</p>
+        <section>
+            <p>Estou noutra</p>
+            <p>Eu também</p>
+        </section>
+    </div>
+    <p> Eu estou fora</p>
+
+    <p> Eu também</p>
+    <p> Estamos juntos</p>
+
+    <div class="zebra">
+        <p>Parágrafo 1</p>
+        <p>Parágrafo 2</p>
+        <p>Parágrafo 3</p>
+        <p>Parágrafo 4</p>
+        <p>Parágrafo 5</p>
+        <p>Parágrafo 6</p>
+        <p>Parágrafo 7</p>
+        <p>Parágrafo 8</p>
+        <p>Parágrafo 9</p>
+        <p>Parágrafo 10</p>
+        <p>Parágrafo 11</p>
+        <p>Parágrafo 12</p>
+    </div>
+
+    <div class="bigbox">
+        <div class="box box1"> Box 1</div>
+        <div class="box box2">Box 2</div>
+    </div>
+
+    <div class="lista">
+        <ul>
+            <li>
+                <a href="manual.pdf">manual</a>
+            </li>
+            <li>
+                <a href="foto.jpg">foto</a>
+            </li>
+            <li>
+                <a href="livro.doc">livro</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="lista">
+        <ol>
+            <li>
+                <a href="manual.pdf">manual</a>
+            </li>
+            <li>
+                <a href="foto.jpg">foto</a>
+            </li>
+            <li>
+                <a href="livro.doc">livro</a>
+            </li>
+        </ol>
+    </div>
+
+    <h1 id="pagetitle">My home page</h1>
+</body>
+
+<script src="alert.js"></script>
+<script>
+    //exemplo1();
+    exemplo2();
+
+    function exemplo1() {
+
+        for (var i = 0; i < 5; i++) {
+            console.log("o valor de a = ", i);
+            var a = duplica(i);
+            console.log("o valor duplicado de a = ", a);
+        }
+
+        function duplica(valor) {
+            return valor * 2;
+        }
+        dup = duplica;
+
+        console.log("dup", dup(100));
+    }
+
+    function exemplo2() {
+        var pt = document.getElementById("pagetitle");
+        pt.innerHTML = "Mudamos o texto!!!";
+        pt.onclick = verde;
+
+        function amarela() {
+            this.style.backgroundColor = "yellow";
+            this.onclick = verde;
+            alerta('amarela');
+        }
+
+        function verde() {
+            this.style.backgroundColor = "green";
+            this.onclick = amarela;
+            alerta('verde');
+        }
+
+        console.log(pt);
+    }
+</script>
+
+</html>

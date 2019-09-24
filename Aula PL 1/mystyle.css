@@ -1,0 +1,137 @@
+/*CSS paragrafos que estão dentro de uma div*/
+
+div p {
+    color: seagreen;
+}
+
+
+/*CSS paragrafos que são filhos diretos de uma div*/
+
+div>p {
+    color: #ff6600 !important;
+}
+
+
+/*CSS todos paragrafos que estão depois de uma div*/
+
+div~p {
+    color: #0ead0e !important;
+    margin-left: 40px;
+}
+
+
+/*CSS paragrafos que são adjacentes (imediatamente a seguir) a uma div*/
+
+div+p {
+    color: #c7278a !important;
+    margin-left: 20px;
+}
+
+
+/*CSS mouse hover muda*/
+
+p:hover {
+    background-color: white;
+}
+
+
+/*CSS estilo zebra a parágrafos*/
+
+div.zebra>p:nth-child(n) {
+    color: lightgray;
+    background-color: cornflowerblue;
+}
+
+div.zebra>p:nth-child(2n) {
+    color: cornflowerblue;
+    background-color: silver;
+}
+
+
+/*CSS altera a primeira letra do filho direto / tamanho da fonte maior em relação ao pai*/
+
+div.zebra>p::first-letter {
+    text-transform: capitalize;
+    font-size: larger;
+    color: red;
+}
+
+
+/*CSS todos os elementos com a class box*/
+
+.box {
+    width: 50%;
+    height: 100px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.bigbox {
+    display: flex;
+}
+
+.box1 {
+    background-color: #00ffea;
+}
+
+
+/*CSS todas as divs com a class box*/
+
+div.box2 {
+    background-color: #ef7aff;
+}
+
+
+/*CSS altera o conteudo dos elementos que a extensao acaba em*/
+
+div.lista ul a[href$=pdf]::after {
+    content: "(PDF)"
+}
+
+div.lista ul a[href$=jpg]::after {
+    content: "(FOTO)"
+}
+
+div.lista ul a[href$=doc]::after {
+    content: "(MS WORD)"
+}
+
+ul,
+ol {
+    font-size: 30px;
+    /* 
+    UL - list-style-type: circle;
+    UL - list-style-type: square;
+    OL - list-style-type: upper-roman;
+    OL - list-style-type: lower-alpha;
+  */
+}
+
+
+/* CSS quando a página está em modo impressão */
+
+@media print {
+    * {
+        background-color: #ff7c7c !important;
+        color: black !important
+    }
+    ;
+}
+
+
+/* CSS quando a página tem pelo menos 500px*/
+
+@media screen and (min-width: 500px) {
+    body {
+        background-color: #e2e2e2
+    }
+}
+
+
+/* CSS quando a página tem no máximo 800px*/
+
+@media screen and (max-width: 800px) {
+    body {
+        background-color: #ffb885;
+    }
+}
