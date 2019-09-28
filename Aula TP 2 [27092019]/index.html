@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<style>
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+    
+    td,
+    th {
+        border: 1px solid #000;
+        text-align: left;
+        padding: 8px;
+    }
+    /*tr:nth-child(even) {
+        background-color: #dddddd;
+    } */
+</style>
+
+<body>
+    <h2>Basic HTML Table</h2>
+    <table style="width:100%">
+        <thead>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Age</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Jill</td>
+                <td>Smith</td>
+                <td>50</td>
+            </tr>
+            <tr>
+                <td>Eve</td>
+                <td>Jackson</td>
+                <td>94</td>
+            </tr>
+            <tr>
+                <td>John</td>
+                <td>Doe</td>
+                <td>80</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Age</th>
+        </tfoot>
+    </table>
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <h2>HTML Table</h2>
+
+    <table>
+        <tr>
+            <th>Company</th>
+            <th>Contact</th>
+            <th>Country</th>
+        </tr>
+        <tr>
+            <td>Alfreds Futterkiste</td>
+            <td>123 467 053</td>
+            <td>Germany</td>
+        </tr>
+        <tr>
+            <td>Centro comercial Moctezuma</td>
+            <td>123 467 053</td>
+            <td>Mexico</td>
+        </tr>
+        <tr>
+            <td colspan="2" style="background-color: cadetblue">Ernst Handel - 123 467 053</td>
+            <!-- <td>123 467 053</td> -->
+            <td>Austria</td>
+        </tr>
+        <tr>
+            <td>Island Trading</td>
+            <td>123 467 053</td>
+            <td>UK</td>
+        </tr>
+        <tr>
+            <td>Laughing Bacchus Winecellars</td>
+            <td>123 467 053</td>
+            <td>Canada</td>
+        </tr>
+        <tr>
+            <td colspan="2" style="background-color: cadetblue">Magazzini Alimentari Riuniti - 123 467 053</td>
+            <!-- <td>123 467 053</td> -->
+            <td>Italy</td>
+        </tr>
+    </table>
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <h2>The XMLHttpRequest Object</h2>
+
+    <button type="button" onclick="loadDoc()">Request Joke</button>
+
+    <p id="question"></p>
+
+    <p id="answer"></p>
+
+
+
+
+    <script>
+        function loadDoc() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    var res = JSON.parse(this.responseText);
+
+                    if (res.type == 'single') {
+                        document.getElementById("question").innerHTML = '';
+                        document.getElementById("answer").innerHTML = res.joke;
+                    } else {
+                        document.getElementById("question").innerHTML = res.setup;
+                        document.getElementById("answer").innerHTML = res.delivery;
+                    }
+                    console.log(res);
+                }
+            };
+            xhttp.open("GET", "https://sv443.net/jokeapi/category/Programming?blacklistFlags=nsfw", true);
+            xhttp.send();
+        }
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+        /*function loadDoc() {
+                                                                                                                                            var xhttp = new XMLHttpRequest();
+                                                                                                                                            xhttp.onreadystatechange = function() {
+                                                                                                                                                if (this.readyState == 4 && this.status == 200) {
+                                                                                                                                                    var res = JSON.parse(this.responseText);
+
+                                                                                                                                                    if (res.type == 'single') {
+                                                                                                                                                        document.getElementById("question").innerHTML = '';
+                                                                                                                                                        document.getElementById("answer").innerHTML = res.joke;
+                                                                                                                                                    } else {
+                                                                                                                                                        document.getElementById("question").innerHTML = res.setup;
+                                                                                                                                                        document.getElementById("answer").innerHTML = res.delivery;
+                                                                                                                                                    }
+                                                                                                                                                    console.log(res);
+                                                                                                                                                }
+                                                                                                                                            };
+                                                                                                                                            xhttp.open("GET", "https://sv443.net/jokeapi/category/Programming?blacklistFlags=nsfw", true);
+                                                                                                                                            xhttp.send();
+                                                                                                                                        }*/
+    </script>
+
+</body>
+
+</html>
