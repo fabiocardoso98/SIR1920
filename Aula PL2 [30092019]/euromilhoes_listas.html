@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Euromilhões</title>
+    <meta charset="utf-8">
+</head>
+
+<body>
+    <div>
+        <h1>Euromilhões</h1>
+    </div>
+    <div>
+        <button id="gera">Gera Chave</button>
+        <button id="limpa">Limpa Chaves</button>
+    </div>
+
+    <div id="content">
+    </div>
+
+    <script>
+        // gerador de chaves
+
+        var gera = document.getElementById("gera");
+        var limpa = document.getElementById("limpa");
+        var divContent = document.getElementById("content");
+
+        limpa.onclick = function() {
+            divContent.innerHTML = "";
+        }
+
+        gera.addEventListener("click", geraChave);
+
+        function geraChave() {
+
+            var chave = {
+                "estrelas": [],
+                "numeros": []
+            };
+
+            chave.estrelas = extrator(1, 12, 2);
+            chave.numeros = extrator(1, 50, 5);
+
+            var divChave = document.createElement("div");
+            divChave.className = "chave";
+
+            var listaEstrelas = document.createElement("ul");
+            listaEstrelas.className = "estrelas";
+
+            var listaNumeros = document.createElement("ul");
+            listaNumeros.className = "numeros";
+
+            divChave.appendChild(listaEstrelas);
+            divChave.appendChild(listaNumeros);
+
+            array2List(listaEstrelas, chave.estrelas, 'Estrelas');
+            array2List(listaNumeros, chave.numeros, 'Números');
+
+            divContent.appendChild(divChave);
+
+            function array2List(lista, chave, tipo) {
+                //var titulo = document.createElement("li");
+                //titulo.innerHTML = tipo
+                //lista.appendChild(titulo);
+
+                for (var c of chave) {
+                    var li = document.createElement("li");
+                    li.innerHTML = c;
+                    lista.appendChild(li);
+                }
+            }
+
+            function extrator(min, max, n) {
+                extracao = [];
+                while (extracao.length < n) {
+                    num = Math.floor(Math.random() * (max - min + 1)) + min;
+                    if (extracao.indexOf(num) < 0) {
+                        extracao.push(num);
+                    }
+                }
+                extracao.sort(comparaNumeros);
+                return extracao;
+
+            }
+
+            function comparaNumeros(a, b) {
+                return (a - b)
+            };
+            console.log(chave);
+        }
+    </script>
+</body>
+
+</html>
